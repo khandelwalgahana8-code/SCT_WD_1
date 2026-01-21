@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Landing Page</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f7fa;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      transition: 0.4s ease;
+      z-index: 1000;
+    }
+
+    header.scrolled {
+      background: #111;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      color: white;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 12px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: #00c6ff;
+      border-radius: 5px;
+    }
+
+    /* Hamburger */
+    .menu-btn {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* Sections */
+    section {
+      height: 100vh;
+      padding: 120px 40px;
+      text-align: center;
+    }
+
+    #home {
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: white;
+    }
+
+    #about {
+      background: white;
+    }
+
+    #services {
+      background: #eef2f3;
+    }
+
+    #contact {
+      background: #ddd;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 65px;
+        right: 0;
+        background: #111;
+        width: 100%;
+        flex-direction: column;
+        display: none;
+      }
+
+      nav ul.active {
+        display: block;
+      }
+
+      nav ul li {
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="nav-container">
+      <div class="logo">MyLanding</div>
+      <div class="menu-btn" id="menuBtn">☰</div>
+      <nav>
+        <ul id="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sections -->
+  <section id="home">
+    <h1>Welcome</h1>
+    <p>Modern Responsive Landing Page</p>
+  </section>
+
+  <section id="about">
+    <h1>About</h1>
+    <p>Fixed navbar with hover and scroll animations.</p>
+  </section>
+
+  <section id="services">
+    <h1>Services</h1>
+    <p>Fully responsive UI using HTML, CSS & JavaScript.</p>
+  </section>
+
+  <section id="contact">
+    <h1>Contact</h1>
+    <p>Mobile-friendly navigation menu.</p>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menuBtn");
+    const menu = document.getElementById("menu");
+
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  </script>
+
+</body>
+</html>
